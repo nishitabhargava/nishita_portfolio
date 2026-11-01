@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nishita Bhargava | Developer Portfolio</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg: #080b12;
+    --card: #111827;
+    --cyan: #69f0e2;
+    --purple: #a99bff;
+    --text: #eef3ff;
+    --muted: #98a5ba;
+    --border: rgba(160,180,220,.16);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Manrope', sans-serif;
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    width: 90%;
+    max-width: 1150px;
+    margin: auto;
+}
+
+/* NAVBAR */
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(8,11,18,.92);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+    min-height: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'DM Mono', monospace;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: var(--cyan);
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--muted);
+    font-size: 13px;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--cyan);
+}
+
+/* HERO */
+
+.hero {
+    min-height: 85vh;
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    align-items: center;
+    gap: 50px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.eyebrow {
+    font-family: 'DM Mono', monospace;
+    color: var(--cyan);
+    letter-spacing: 3px;
+    font-size: 12px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 6vw, 76px);
+    line-height: 1.12;
+    margin: 22px 0;
+    letter-spacing: -3px;
+}
+
+.gradient {
+    background: linear-gradient(90deg, var(--cyan), var(--purple));
+    color: transparent;
+    background-clip: text;
+}
+
+.hero p {
+    color: var(--muted);
+    max-width: 600px;
+    font-size: 15px;
+    margin-bottom: 28px;
+}
+
+.buttons {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 19px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    transition: .3s;
+    display: inline-block;
+}
+
+.btn.primary {
+    background: var(--cyan);
+    color: #080b12;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(105,240,226,.12);
+}
+
+.terminal {
+    background: var(--card);
+    border: 1px solid rgba(169,155,255,.3);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,.3);
+}
+
+.terminal-header {
+    padding: 15px;
+    border-bottom: 1px solid var(--border);
+    color: var(--muted);
+    font-family: monospace;
+}
+
+.terminal-body {
+    padding: 25px;
+    font: 12px/2.2 'DM Mono', monospace;
+    overflow-wrap: anywhere;
+}
+
+.purple { color: var(--purple); }
+.green { color: #b9ff8e; }
+.cyan { color: var(--cyan); }
+.comment { color: #718096; }
+
+/* COMMON SECTIONS */
+
+section {
+    padding: 85px 0;
+    border-top: 1px solid var(--border);
+}
+
+.section-label {
+    color: var(--cyan);
+    font: 12px 'DM Mono', monospace;
+    letter-spacing: 2px;
+}
+
+.section-title {
+    font-size: clamp(29px, 4vw, 43px);
+    margin: 8px 0 30px;
+    letter-spacing: -1.5px;
+}
+
+.muted {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* ABOUT */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.card {
+    background: linear-gradient(145deg, #111827, #0c111b);
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    padding: 25px;
+    transition: .3s;
+}
+
+.card:hover {
+    border-color: rgba(105,240,226,.4);
+    transform: translateY(-3px);
+}
+
+.card h3 {
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+
+/* SKILLS */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 17px;
+}
+
+.skill-box h3 {
+    color: var(--purple);
+    font: 13px 'DM Mono', monospace;
+    margin-bottom: 18px;
+}
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.chip {
+    padding: 7px 10px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: #d7e0f1;
+    font-size: 12px;
+}
+
+/* PROJECTS */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.project {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.project:hover {
+    border-color: rgba(105,240,226,.5);
+    transform: translateY(-3px);
+}
+
+.project-content {
+    padding: 25px;
+}
+
+.project-number {
+    color: var(--cyan);
+    font: 11px 'DM Mono', monospace;
+}
+
+.project h3 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.project p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.project-details {
+    display: none;
+    padding: 22px 25px;
+    border-top: 1px solid var(--border);
+    background: rgba(0,0,0,.15);
+}
+
+.project.open .project-details {
+    display: block;
+    animation: reveal .3s ease;
+}
+
+@keyframes reveal {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.project-details h4 {
+    color: var(--purple);
+    font: 12px 'DM Mono', monospace;
+    margin: 15px 0 7px;
+}
+
+.project-details h4:first-child {
+    margin-top: 0;
+}
+
+.project-details ul {
+    padding-left: 19px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.project-details p {
+    margin-bottom: 10px;
+}
+
+.tech-list {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 17px 0;
+}
+
+.tech {
+    font: 10px 'DM Mono', monospace;
+    border: 1px solid var(--border);
+    color: var(--cyan);
+    padding: 5px 8px;
+    border-radius: 5px;
+}
+
+.details-btn {
+    margin-top: 20px;
+    background: transparent;
+    color: var(--cyan);
+    border: 0;
+    font: 12px 'DM Mono', monospace;
+    cursor: pointer;
+}
+
+.details-btn:hover {
+    color: var(--purple);
+}
+
+/* EDUCATION */
+
+.education-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 17px;
+}
+
+.education-item {
+    padding: 23px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.education-item h3 {
+    font-size: 16px;
+}
+
+.education-item p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* CONTACT */
+
+.contact-box {
+    padding: 40px;
+    border: 1px solid rgba(105,240,226,.3);
+    border-radius: 15px;
+    background: linear-gradient(120deg, #111827, #0b111c);
+}
+
+.contact-box h2 {
+    font-size: clamp(28px, 4vw, 42px);
+    margin: 12px 0;
+}
+
+.contact-box p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 22px;
+}
+
+footer {
+    padding: 25px 0;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font: 11px 'DM Mono', monospace;
+    text-align: center;
+}
+
+/* MOBILE */
+
+@media(max-width: 800px) {
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width: 550px) {
+    .nav-links {
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    .nav-links a {
+        font-size: 11px;
+    }
+
+    .about-grid,
+    .education-grid,
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .contact-box {
+        padding: 24px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+    <div class="container navbar">
+
+        <a href="#home" class="logo">&lt;<span>NB</span> /&gt;</a>
+
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+    </div>
+</nav>
+
+<!-- HOME -->
+
+<header class="container hero" id="home">
+
+    <div>
+
+        <div class="eyebrow">PORTFOLIO / 2026</div>
+
+        <h1>
+            Hi, I'm Nishita.<br>
+            <span class="gradient">I build for the web.</span>
+        </h1>
+
+        <p>
+            A computer applications student and aspiring web developer
+            who enjoys turning ideas into clean, useful and thoughtfully
+            designed digital experiences.
+        </p>
+
+        <div class="buttons">
+            <a href="#projects" class="btn primary">Explore Projects ↘</a>
+            <a href="#contact" class="btn">Let's Connect ↗</a>
+        </div>
+
+    </div>
+
+    <div class="terminal">
+
+        <div class="terminal-header">
+            ● <span style="color:#ffd166">●</span>
+            <span style="color:#7ef5a5">●</span>
+            &nbsp; nishita.js
+        </div>
+
+        <div class="terminal-body">
+
+            <span class="purple">const</span> developer = {<br>
+
+            &nbsp; name:
+            <span class="green">'Nishita Bhargava'</span>,<br>
+
+            &nbsp; role:
+            <span class="green">'Web Developer'</span>,<br>
+
+            &nbsp; education:
+            <span class="green">'MCA Student'</span>,<br>
+
+            &nbsp; skills: [<br>
+
+            &nbsp;&nbsp;
+            <span class="cyan">'JavaScript'</span>,<br>
+
+            &nbsp;&nbsp;
+            <span class="cyan">'React'</span>,<br>
+
+            &nbsp;&nbsp;
+            <span class="cyan">'Node.js'</span>,<br>
+
+            &nbsp;&nbsp;
+            <span class="cyan">'UI/UX Design'</span><br>
+
+            &nbsp; ],<br>
+
+            &nbsp; mindset:
+            <span class="green">'Build & Learn'</span><br>
+
+            };<br><br>
+
+            <span class="comment">// Turning ideas into code...</span>
+
+        </div>
+    </div>
+
+</header>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <div class="container">
+
+        <div class="section-label">01 / ABOUT ME</div>
+
+        <h2 class="section-title">
+            Curious mind. Builder mindset.
+        </h2>
+
+        <div class="about-grid">
+
+            <div class="card">
+
+                <h3>A Developer in Progress</h3>
+
+                <p class="muted">
+                    I'm pursuing an MCA after completing my BCA.
+                    I'm developing my skills in programming, web
+                    development, databases and interface design
+                    through practical projects.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Logic Meets Creativity</h3>
+
+                <p class="muted">
+                    I enjoy solving problems, exploring different
+                    solutions and building interfaces that look
+                    good and feel easy to use. I'm always looking
+                    for opportunities to learn and improve.
+                </p>
+
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+    <div class="container">
+
+        <div class="section-label">02 / TECH STACK</div>
+
+        <h2 class="section-title">Tools in my toolkit.</h2>
+
+        <div class="skills-grid">
+
+            <div class="card skill-box">
+
+                <h3>LANGUAGES</h3>
+
+                <div class="chips">
+                    <span class="chip">C</span>
+                    <span class="chip">Python</span>
+                    <span class="chip">JavaScript</span>
+                    <span class="chip">PHP</span>
+                    <span class="chip">SQL</span>
+                </div>
+
+            </div>
+
+            <div class="card skill-box">
+
+                <h3>WEB DEVELOPMENT</h3>
+
+                <div class="chips">
+                    <span class="chip">HTML5</span>
+                    <span class="chip">CSS3</span>
+                    <span class="chip">React</span>
+                    <span class="chip">Node.js</span>
+                </div>
+
+            </div>
+
+            <div class="card skill-box">
+
+                <h3>DATABASES & TOOLS</h3>
+
+                <div class="chips">
+                    <span class="chip">MySQL</span>
+                    <span class="chip">Git</span>
+                    <span class="chip">GitHub</span>
+                    <span class="chip">VS Code</span>
+                </div>
+
+            </div>
+
+            <div class="card skill-box">
+
+                <h3>DESIGN</h3>
+
+                <div class="chips">
+                    <span class="chip">Figma</span>
+                    <span class="chip">UI/UX Design</span>
+                    <span class="chip">Wireframing</span>
+                </div>
+
+            </div>
+
+            <div class="card skill-box">
+
+                <h3>CORE STRENGTHS</h3>
+
+                <div class="chips">
+                    <span class="chip">Problem Solving</span>
+                    <span class="chip">Analytical Thinking</span>
+                    <span class="chip">Logical Thinking</span>
+                </div>
+
+            </div>
+
+            <div class="card skill-box">
+
+                <h3>DEVELOPMENT FOCUS</h3>
+
+                <div class="chips">
+                    <span class="chip">Responsive UI</span>
+                    <span class="chip">API Concepts</span>
+                    <span class="chip">Full-Stack Learning</span>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+    <div class="container">
+
+        <div class="section-label">03 / SELECTED WORK</div>
+
+        <h2 class="section-title">
+            Projects, not just promises.
+        </h2>
+
+        <p class="muted" style="margin-bottom:30px">
+            Click any project to explore its overview, features,
+            technologies and learning outcomes.
+        </p>
+
+        <div class="projects-grid">
+
+            <!-- PROJECT 1: SKILL-BRIDGE -->
+
+            <article class="project">
+
+                <div class="project-content">
+
+                    <div class="project-number">PROJECT_01 · 2026</div>
+
+                    <h3>Skill-Bridge — Smart Internship &amp; Job Portal</h3>
+
+                    <p>
+                        A platform designed to connect students and job seekers
+                        with internship and employment opportunities.
+                    </p>
+
+                    <div class="tech-list">
+                        <span class="tech">HTML5</span>
+                        <span class="tech">CSS3</span>
+                        <span class="tech">JavaScript</span>
+                        <span class="tech">PHP</span>
+                        <span class="tech">MySQL</span>
+                    </div>
+
+                    <button class="details-btn" aria-expanded="false">
+                        View project details ＋
+                    </button>
+
+                </div>
+
+                <div class="project-details">
+
+                    <h4>PROJECT OVERVIEW</h4>
+
+                    <p>
+                        Skill-Bridge is a smart internship and job portal
+                        designed to help students and job seekers discover
+                        opportunities and manage applications through
+                        one organized platform.
+                    </p>
+
+                    <h4>KEY FEATURES</h4>
+
+                    <ul>
+                        <li>Browse internship and job opportunities.</li>
+                        <li>View role, company and eligibility information.</li>
+                        <li>Organized opportunities for students and candidates.</li>
+                        <li>Application form interface.</li>
+                        <li>User-friendly and responsive design.</li>
+                    </ul>
+
+                    <h4>TECHNOLOGIES USED</h4>
+
+                    <p>
+                        HTML5, CSS3 and JavaScript for frontend development,
+                        PHP for backend functionality and MySQL for
+                        database management.
+                    </p>
+
+                    <h4>WHAT I LEARNED</h4>
+
+                    <p>
+                        Web portal development, designing user-friendly
+                        interfaces, handling forms and understanding how
+                        frontend, backend and databases work together.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- PROJECT 2: TRACE IT -->
+
+            <article class="project">
+
+                <div class="project-content">
+
+                    <div class="project-number">PROJECT_02 · 2024</div>
+
+                    <h3>Trace It — Lost &amp; Found Portal</h3>
+
+                    <p>
+                        A lost and found portal that helps users report,
+                        search and recover misplaced belongings.
+                    </p>
+
+                    <div class="tech-list">
+                        <span class="tech">HTML5</span>
+                        <span class="tech">CSS3</span>
+                        <span class="tech">JavaScript</span>
+                        <span class="tech">PHP</span>
+                        <span class="tech">MySQL</span>
+                    </div>
+
+                    <button class="details-btn" aria-expanded="false">
+                        View project details ＋
+                    </button>
+
+                </div>
+
+                <div class="project-details">
+
+                    <h4>PROJECT OVERVIEW</h4>
+
+                    <p>
+                        Trace It is a lost and found portal that provides
+                        a common platform where users can report lost or
+                        found items and search for belongings reported
+                        by others.
+                    </p>
+
+                    <h4>KEY FEATURES</h4>
+
+                    <ul>
+                        <li>Report lost and found items.</li>
+                        <li>Add item name, description, category and location.</li>
+                        <li>Browse reported lost and found items.</li>
+                        <li>Search for specific items.</li>
+                        <li>View item details to help identify belongings.</li>
+                    </ul>
+
+                    <h4>TECHNOLOGIES USED</h4>
+
+                    <p>
+                        HTML5, CSS3 and JavaScript for frontend development,
+                        PHP for backend functionality and MySQL for
+                        storing and managing item records.
+                    </p>
+
+                    <h4>WHAT I LEARNED</h4>
+
+                    <p>
+                        Building web interfaces, working with forms,
+                        organizing user-submitted information and
+                        understanding database-driven applications.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- PROJECT 3: NOHAA -->
+
+            <article class="project">
+
+                <div class="project-content">
+
+                    <div class="project-number">PROJECT_03 · 2025</div>
+
+                    <h3>Nohaa — Interactive Voice Assistant</h3>
+
+                    <p>
+                        An interactive voice assistant project exploring
+                        voice-based interaction and AI-powered speech generation.
+                    </p>
+
+                    <div class="tech-list">
+                        <span class="tech">Python</span>
+                        <span class="tech">ElevenLabs</span>
+                        <span class="tech">API Integration</span>
+                    </div>
+
+                    <button class="details-btn" aria-expanded="false">
+                        View project details ＋
+                    </button>
+
+                </div>
+
+                <div class="project-details">
+
+                    <h4>PROJECT OVERVIEW</h4>
+
+                    <p>
+                        Nohaa is an interactive voice assistant project
+                        that explores voice-based interaction and
+                        AI-generated speech to create a more natural
+                        user experience.
+                    </p>
+
+                    <h4>KEY FEATURES</h4>
+
+                    <ul>
+                        <li>Voice-oriented assistant experience.</li>
+                        <li>AI-powered speech generation.</li>
+                        <li>ElevenLabs integration for text-to-speech.</li>
+                        <li>API-based connection with external services.</li>
+                        <li>Interactive response flow.</li>
+                    </ul>
+
+                    <h4>TECHNOLOGIES USED</h4>
+
+                    <p>
+                        Python for programming logic, ElevenLabs for
+                        AI-powered voice generation and API integration
+                        for connecting external services.
+                    </p>
+
+                    <h4>WHAT I LEARNED</h4>
+
+                    <p>
+                        Working with external APIs, understanding
+                        text-to-speech technology and exploring
+                        voice-based user interaction.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- PROJECT 4: SMART LIBRARY MANAGEMENT SYSTEM -->
+
+            <article class="project">
+
+                <div class="project-content">
+
+                    <div class="project-number">PROJECT_04 · 2022</div>
+
+                    <h3>Smart Library Management System</h3>
+
+                    <p>
+                        A Python and SQL-based academic project for
+                        organizing library records and managing book data.
+                    </p>
+
+                    <div class="tech-list">
+                        <span class="tech">Python</span>
+                        <span class="tech">SQL</span>
+                        <span class="tech">Database Management</span>
+                    </div>
+
+                    <button class="details-btn" aria-expanded="false">
+                        View project details ＋
+                    </button>
+
+                </div>
+
+                <div class="project-details">
+
+                    <h4>PROJECT OVERVIEW</h4>
+
+                    <p>
+                        Smart Library Management System is an academic
+                        project developed to manage library information
+                        and maintain book records using Python and SQL.
+                    </p>
+
+                    <h4>KEY FEATURES</h4>
+
+                    <ul>
+                        <li>Maintain and organize book records.</li>
+                        <li>Store and retrieve library information.</li>
+                        <li>Search for book-related records.</li>
+                        <li>Manage data using SQL queries.</li>
+                        <li>Apply programming logic to record management.</li>
+                    </ul>
+
+                    <h4>TECHNOLOGIES USED</h4>
+
+                    <p>
+                        Python for application logic and SQL for
+                        database operations, storing and retrieving
+                        library records.
+                    </p>
+
+                    <h4>WHAT I LEARNED</h4>
+
+                    <p>
+                        Python programming fundamentals, SQL queries,
+                        database organization and structured data management.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- EDUCATION -->
+
+<section id="education">
+
+    <div class="container">
+
+        <div class="section-label">04 / EDUCATION</div>
+
+        <h2 class="section-title">My academic journey.</h2>
+
+        <div class="education-grid">
+
+            <div class="education-item">
+                <h3>Master of Computer Applications</h3>
+                <p>Currently Pursuing · JIET, Jodhpur</p>
+            </div>
+
+            <div class="education-item">
+                <h3>Bachelor of Computer Applications</h3>
+                <p>Lachoo Memorial College · 74.12%</p>
+            </div>
+
+            <div class="education-item">
+                <h3>Senior Secondary — CBSE</h3>
+                <p>Mahaveer Public School · 80%</p>
+            </div>
+
+            <div class="education-item">
+                <h3>Secondary — CBSE</h3>
+                <p>Mahaveer Public School · 77%</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <div class="container">
+
+        <div class="contact-box">
+
+            <div class="section-label">05 / CONTACT</div>
+
+            <h2>Let's build something meaningful.</h2>
+
+            <p>
+                Interested in web development, creative ideas
+                and solving practical problems? Let's connect
+                and share ideas.
+            </p>
+
+            <div class="buttons">
+
+                <!-- PHONE NUMBER ADDED -->
+
+                <a class="btn"
+                   href="tel:+919024026825">
+                    +91 9024026825 ↗
+                </a>
+
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nishita.bhargava20@gmail.com"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn btn-primary">
+                    Email Me ↗
+                </a>
+
+                <a class="btn"
+                   href="https://www.linkedin.com/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    LinkedIn ↗
+                </a>
+
+                <a class="btn"
+                   href="https://github.com/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    GitHub ↗
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="container">
+        © <span id="year"></span> Nishita Bhargava
+        · Designed with logic and creativity.
+    </div>
+
+</footer>
+
+<script>
+
+    // Project details open/close functionality
+
+    document.querySelectorAll('.details-btn').forEach(button => {
+
+        button.addEventListener('click', () => {
+
+            const project = button.closest('.project');
+
+            const isOpen = project.classList.toggle('open');
+
+            button.setAttribute('aria-expanded', isOpen);
+
+            button.textContent = isOpen
+                ? 'Hide project details −'
+                : 'View project details ＋';
+
+        });
+
+    });
+
+    // Automatically update copyright year
+
+    document.getElementById('year').textContent =
+        new Date().getFullYear();
+
+</script>
+
+</body>
+</html>
